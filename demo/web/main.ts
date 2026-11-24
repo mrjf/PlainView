@@ -1,6 +1,9 @@
 import { applyTokens, extractTokens, renderPlainView } from "../../src/index.js";
 
 const DEFAULT_TOKENS: Record<string, string> = {
+  defaultTheme: '"system"',
+  minFont: "8",
+  maxFont: "72",
   currency: '"USD"',
   coffeePrice: "18.50",
   filterPrice: "7.00",
@@ -17,8 +20,8 @@ description: "Per-user display settings"
 
 > Shared by the web and desktop clients.
 - :DisplaySettings: How the app is displayed for one user.
-  - theme - The color theme - one of "light", "dark", or "system". Defaults to "system".
-  - fontSize - The body font size in points - an integer between 8 and 72. Defaults to 14.
+  - theme - The color theme - one of "light", "dark", or "system". Defaults to {{defaultTheme}}.
+  - fontSize - The body font size in points - an integer between {{minFont}} and {{maxFont}}. Defaults to 14.
   - displayName (optional) - The name shown in the header - a string between 1 and 40 characters.
 `,
   plaindata: `***plaindata***
