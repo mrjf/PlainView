@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { detectDialect, renderPlainView } from "../src/index.js";
+import { applyTokens, detectDialect, renderPlainView } from "../src/index.js";
 
 describe("PlainView", () => {
   it("detects PlainType, PlainData, PlainState, and plain dialects", () => {
@@ -65,5 +65,15 @@ description: "Settings"
   it("renders {{token}} spans with proofreader-mark token elements", () => {
     const res = renderPlainView("***plaindata***\n- :Theme:\n  - accent - {{accentColor}}\n");
     assert.match(res.html, /class="pv-token" data-token="accentColor">accentColor</);
+  });
+
+  it("maps resolved TokenSpan[] onto rendered prose", () => {
+    const applied = applyTokens("***plaindata***\n- :Theme:\n  - mode - {{mode}}\n  - size - {{size}}\n", {
+      mode: '"dark"',
+      size: "14",
+    });
+    const res = renderPlainView(applied.text, { spans: applied.spans });
+    assert.match(res.html, /class="pv-token-resolved" data-token="mode" title="\{\{mode\}\}">"dark"</);
+    assert.match(res.html, /class="pv-token-resolved" data-token="size" title="\{\{size\}\}">14</);
   });
 });
