@@ -244,3 +244,11 @@ button.quiet:hover { color: var(--shell-ink); }
 .pv-string { font-family: var(--mono); font-size: 13px; color: var(--t-string); }
 .pv-number { font-family: var(--mono); font-size: 13px; color: var(--t-number); }
 .pv-empty { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.pv-token {
+  font-family: var(--mono);
+  font-size: 13px;
+  border-bottom: 1.5px solid var(--accent);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+.pv-token:hover { background: var(--selection); }

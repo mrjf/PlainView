@@ -61,4 +61,9 @@ description: "Settings"
     assert.match(res.html, /pv-event">begin</);
     assert.match(res.html, /<strong class="pv-ref">Pressed<\/strong>/);
   });
+
+  it("renders {{token}} spans with proofreader-mark token elements", () => {
+    const res = renderPlainView("***plaindata***\n- :Theme:\n  - accent - {{accentColor}}\n");
+    assert.match(res.html, /class="pv-token" data-token="accentColor">accentColor</);
+  });
 });

@@ -18,7 +18,7 @@ export interface RenderResult {
 const CONCEPT_DECLARATION = /^:([A-Za-z0-9+._-]+):(?:\s+(.*))?$/;
 const ARRAY_ITEM = /^(#\d+)(?: - (.*))?$/;
 const ATTRIBUTE = /^("(?:[^"\\]|\\.)*"|[A-Za-z_$][A-Za-z0-9_$-]*)( \((?:optional|object|optional, object)\))?(?:( - |: )(.*))?$/;
-const INLINE_CONCEPT = /"(?:[^"\\]|\\.)*"|:([A-Za-z0-9+._-]+):/g;
+const INLINE_CONCEPT = /"(?:[^"\\]|\\.)*"|:([A-Za-z0-9+._-]+):|\{\{\s*([A-Za-z_][A-Za-z0-9_.-]*)\s*\}\}/g;
 const STATE_EDGE = /^(On\s+)([A-Za-z][A-Za-z0-9_-]*)(.*)$/;
 
 export function detectDialect(source: string): PlainDialect {
@@ -40,7 +40,11 @@ function renderInline(text: string): string {
   let cursor = 0;
   for (const match of text.matchAll(INLINE_CONCEPT)) {
     const at = match.index ?? 0;
-    if (match[1] === undefined) {
+    if (match[2] !== undefined) {
+      html += escapeHtml(text.slice(cursor, at));
+      html += `<span class="pv-token" data-token="${escapeHtml(match[2])}">${escapeHtml(match[2])}</span>`;
+      cursor = at + match[0].length;
+    } else if (match[1] === undefined) {
       // Quoted string literal
       html += escapeHtml(text.slice(cursor, at));
       html += `<span class="pv-string">${escapeHtml(match[0])}</span>`;
@@ -78,6 +82,8 @@ function renderDescriptionAndConstraint(text: string): string {
 
 function renderScalar(raw: string): string {
   const trimmed = raw.trim();
+  const tok = /^\{\{\s*([A-Za-z_][A-Za-z0-9_.-]*)\s*\}\}$/.exec(trimmed);
+  if (tok) return `<span class="pv-token" data-token="${escapeHtml(tok[1]!)}">${escapeHtml(tok[1]!)}</span>`;
   if (trimmed.startsWith('"')) return `<span class="pv-string">${escapeHtml(trimmed)}</span>`;
   if (trimmed === "true" || trimmed === "false" || trimmed === "null") {
     return `<span class="pv-keyword">${escapeHtml(trimmed)}</span>`;
