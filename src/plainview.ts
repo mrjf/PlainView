@@ -1,5 +1,5 @@
 /**
- * PlanView — typographic reader renderer for ***plain documents
+ * PlainView — typographic reader renderer for ***plain documents
  * (PlainType, PlainData, PlainState, and general ***plain specs).
  *
  * Strips ***header*** markers, YAML frontmatter, `>` comment prefixes, and

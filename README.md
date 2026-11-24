@@ -1,6 +1,6 @@
-# PlanView
+# PlainView
 
-PlanView is the typographic reader and HTML renderer for `***plain` documents
+PlainView is the typographic reader and HTML renderer for `***plain` documents
 ([`PlainType`](https://github.com/mrjf/PlainType),
 [`PlainData`](https://github.com/mrjf/PlainData),
 [`PlainState`](https://github.com/mrjf/PlainState), and general `***plain`
@@ -25,14 +25,14 @@ node dist/src/cli.js render document.plaintype
 Library API:
 
 ```ts
-import { renderPlainView } from "planview";
+import { renderPlainView } from "plainview";
 
 const { dialect, html } = renderPlainView(source);
 ```
 
 ## Studio
 
-Try the live [PlanView Studio](https://mrjf.github.io/PlanView/) in your browser
+Try the live [PlainView Studio](https://mrjf.github.io/PlainView/) in your browser
 with examples across PlainType, PlainData, PlainState, and Plain specs.
 
 ## The Plain Family
@@ -42,4 +42,4 @@ with examples across PlainType, PlainData, PlainState, and Plain specs.
 | **PlainType** | Controlled-natural-language JSON Schema | [mrjf/PlainType](https://github.com/mrjf/PlainType) | [PlainType Studio](https://mrjf.github.io/PlainType/) |
 | **PlainData** | Lossless JSON data notation | [mrjf/PlainData](https://github.com/mrjf/PlainData) | [PlainData Studio](https://mrjf.github.io/PlainData/) |
 | **PlainState** | Deterministic finite state machines | [mrjf/PlainState](https://github.com/mrjf/PlainState) | [PlainState Studio](https://mrjf.github.io/PlainState/) |
-| **PlanView** | Typographic reader for `***plain` documents | [mrjf/PlanView](https://github.com/mrjf/PlanView) | [PlanView Studio](https://mrjf.github.io/PlanView/) |
+| **PlainView** | Typographic reader for `***plain` documents | [mrjf/PlainView](https://github.com/mrjf/PlainView) | [PlainView Studio](https://mrjf.github.io/PlainView/) |

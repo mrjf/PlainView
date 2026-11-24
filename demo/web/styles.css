@@ -212,7 +212,7 @@ button.quiet:hover { color: var(--shell-ink); }
 }
 .editor textarea:focus { outline: none; }
 
-/* PlanView typographic reader */
+/* PlainView typographic reader */
 .reader-view {
   flex: 1;
   min-height: 0;

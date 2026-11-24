@@ -3,4 +3,4 @@ export {
   renderPlainView,
   type PlainDialect,
   type RenderResult,
-} from "./planview.js";
+} from "./plainview.js";

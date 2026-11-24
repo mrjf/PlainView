@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { renderPlainView } from "./index.js";
 
 function usage(): never {
-  process.stderr.write("Usage: planview render [file] [-o out.html]\n");
+  process.stderr.write("Usage: plainview render [file] [-o out.html]\n");
   process.exit(1);
 }
 

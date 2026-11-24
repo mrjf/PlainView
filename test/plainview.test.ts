@@ -2,7 +2,7 @@ import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { detectDialect, renderPlainView } from "../src/index.js";
 
-describe("PlanView", () => {
+describe("PlainView", () => {
   it("detects PlainType, PlainData, PlainState, and plain dialects", () => {
     assert.equal(detectDialect("***plaintype***\n- :A:\n"), "plaintype");
     assert.equal(detectDialect("***plaindata***\n- :A: - 1\n"), "plaindata");

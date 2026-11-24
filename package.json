@@ -1,10 +1,10 @@
 {
-  "name": "planview",
+  "name": "plainview",
   "version": "0.1.0",
   "description": "Typographic reader and HTML renderer for ***plain documents (PlainType, PlainData, PlainState)",
   "type": "module",
   "bin": {
-    "planview": "./dist/src/cli.js"
+    "plainview": "./dist/src/cli.js"
   },
   "exports": {
     ".": {
