@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PlanView Studio</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 20 20" aria-hidden="true">
+          <rect x="3" y="4" width="14" height="2.2" rx="1" fill="currentColor" />
+          <rect x="3" y="8.9" width="10" height="2.2" rx="1" fill="currentColor" opacity="0.7" />
+          <rect x="3" y="13.8" width="12" height="2.2" rx="1" fill="currentColor" opacity="0.45" />
+        </svg>
+        <h1>PlanView Studio</h1>
+      </div>
+      <nav class="family-links" aria-label="Plain family">
+        <a href="https://mrjf.github.io/PlainType/">PlainType</a>
+        <a href="https://mrjf.github.io/PlainData/">PlainData</a>
+        <a href="https://mrjf.github.io/PlainState/">PlainState</a>
+        <a href="./" aria-current="page">PlanView</a>
+      </nav>
+      <div class="status" id="status" role="status" aria-live="polite" data-phase="synced">
+        <span class="indicator" aria-hidden="true"></span>
+        <span id="status-text">Ready</span>
+        <span class="status-meta" id="status-meta"></span>
+      </div>
+      <div class="actions">
+        <select id="example-select" aria-label="Load example">
+          <option value="plaintype">PlainType</option>
+          <option value="plaindata">PlainData</option>
+          <option value="plainstate">PlainState</option>
+          <option value="plain">Plain Spec</option>
+        </select>
+        <button type="button" id="reset-btn" class="quiet">Reset</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="pane" id="pane-source">
+        <header>
+          <h2>Source (***plain)</h2>
+          <span class="hint">Paste any PlainType, PlainData, PlainState, or ***plain document</span>
+        </header>
+        <div class="editor code">
+          <textarea id="source-input" spellcheck="false" aria-label="Plain source"></textarea>
+        </div>
+      </section>
+
+      <section class="pane" id="pane-reader">
+        <header>
+          <h2>PlanView Reader</h2>
+          <div class="pane-controls">
+            <span class="badge ok" id="dialect-badge">plaintype</span>
+            <button type="button" id="copy-html" class="pane-btn">Copy HTML</button>
+          </div>
+        </header>
+        <div class="reader-view" id="reader-view"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

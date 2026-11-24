@@ -1,0 +1,13 @@
+{
+  "name": "planview-studio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:pages": "rm -rf dist && bun build web/index.html --outdir dist --public-path ./ && touch dist/.nojekyll",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.0",
+    "typescript": "^5.8.0"
+  }
+}
