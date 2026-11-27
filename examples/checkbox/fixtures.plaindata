@@ -1,0 +1,22 @@
+***plaindata***
+- :CheckboxFixtures:
+  - defaultUnchecked
+    - label - "Email notifications"
+    - checked - {{defaultChecked}}
+    - disabled - false
+    - initialPhase - "Unchecked"
+  - preChecked
+    - label - "Remember this device"
+    - checked - true
+    - disabled - false
+    - initialPhase - "Checked"
+  - disabledUnchecked
+    - label - "Locked by administrator"
+    - checked - false
+    - disabled - true
+    - initialPhase - "Unchecked"
+  - disabledChecked
+    - label - "Required terms accepted"
+    - checked - true
+    - disabled - true
+    - initialPhase - "Checked"

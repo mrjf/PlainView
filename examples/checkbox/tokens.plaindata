@@ -1,0 +1,11 @@
+***plaindata***
+- :CheckboxTokens:
+  - labelMaxLength - 80
+  - defaultChecked - false
+  - guard - "interactive"
+  - pressCue - "press"
+  - toggleCue - "toggle"
+  - cancelCue - "cancel"
+  - commitEvent - "changed"
+  - accentColor - "#2c56c9"
+  - radiusPx - 4

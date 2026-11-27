@@ -1,0 +1,33 @@
+***plainstate***
+
+- Starts in :Unchecked:.
+- Unhandled events leave state unchanged and emit nothing.
+
+- :Unchecked: The checkbox is not checked.
+  - On press, when {{guard}}, go to :PressingToCheck:.
+    - Present {{pressCue}}.
+  - On toggle, when {{guard}}, go to :Checked:.
+    - Emit {{commitEvent}} with true.
+    - Present {{toggleCue}}.
+- :PressingToCheck: A pointer or key press began while unchecked.
+  - On release, when {{guard}}, go to :Checked:.
+    - Emit {{commitEvent}} with true.
+    - Present {{toggleCue}}.
+  - On release, when not {{guard}}, go to :Unchecked:.
+    - Present {{cancelCue}}.
+  - On cancel, go to :Unchecked:.
+    - Present {{cancelCue}}.
+- :Checked: The checkbox is checked.
+  - On press, when {{guard}}, go to :PressingToUncheck:.
+    - Present {{pressCue}}.
+  - On toggle, when {{guard}}, go to :Unchecked:.
+    - Emit {{commitEvent}} with false.
+    - Present {{toggleCue}}.
+- :PressingToUncheck: A pointer or key press began while checked.
+  - On release, when {{guard}}, go to :Unchecked:.
+    - Emit {{commitEvent}} with false.
+    - Present {{toggleCue}}.
+  - On release, when not {{guard}}, go to :Checked:.
+    - Present {{cancelCue}}.
+  - On cancel, go to :Checked:.
+    - Present {{cancelCue}}.

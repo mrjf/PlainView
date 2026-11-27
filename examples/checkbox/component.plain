@@ -1,0 +1,23 @@
+***plain***
+
+***component***
+
+> A portable, framework-agnostic Checkbox described purely in Plain formats.
+- :Checkbox: A binary toggle control with a visible label and deterministic gesture handling.
+  - Tokens use "tokens.plaindata".
+  - Contract uses "contract.plaintype".
+  - Machine uses "behavior.plainstate".
+  - Fixtures use "fixtures.plaindata".
+
+***interaction***
+
+- Pressing Space while focused sends toggle to the machine.
+- Pointer down sends press; pointer up inside sends release; pointer cancel or leave sends cancel.
+- While disabled, the {{guard}} guard is false and no toggle commits.
+
+***presentation***
+
+- Accent fill uses {{accentColor}} with a {{radiusPx}}px corner radius.
+- {{pressCue}} gives immediate tactile feedback without emitting a change.
+- {{toggleCue}} commits the checkmark transition on release or Space.
+- {{cancelCue}} restores the prior state silently without emitting {{commitEvent}}.

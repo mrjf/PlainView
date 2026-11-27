@@ -30,10 +30,15 @@ import { renderPlainView } from "plainview";
 const { dialect, html } = renderPlainView(source);
 ```
 
-## Studio
+## Studio & Complete Checkbox Example
 
 Try the live [PlainView Studio](https://mrjf.github.io/PlainView/) in your browser
-with examples across PlainType, PlainData, PlainState, and Plain specs.
+with examples across PlainType, PlainData, PlainState, and Plain specs, or open
+the [Complete Checkbox Component](https://mrjf.github.io/PlainView/checkbox.html)
+(`examples/checkbox/`) showing a standalone, framework-agnostic Checkbox fully
+specified across `tokens.plaindata`, `contract.plaintype`,
+`behavior.plainstate`, `fixtures.plaindata`, and `component.plain` with live
+shared tokens and an interactive state machine.
 
 ## The Plain Family
 

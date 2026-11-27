@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:pages": "rm -rf dist && bun build web/index.html --outdir dist --public-path ./ && touch dist/.nojekyll",
+    "build:pages": "rm -rf dist && bun build web/index.html web/checkbox.html --outdir dist --public-path ./ && touch dist/.nojekyll",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

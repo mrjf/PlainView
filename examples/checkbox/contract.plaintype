@@ -1,0 +1,25 @@
+---
+description: "Data, state, and event contracts for a standalone Checkbox component"
+---
+
+***plaintype***
+
+***definitions***
+
+> Public inputs supplied by the host or parent view.
+- :CheckboxProps: Configuration for one checkbox instance.
+  - label - Visible text label - a string between 1 and {{labelMaxLength}} characters.
+  - checked (optional) - Initial or controlled checked state - a boolean. Defaults to {{defaultChecked}}.
+  - disabled (optional) - Whether user interaction is blocked - a boolean. Defaults to false.
+
+> Observable state owned by the checkbox state machine.
+- :CheckboxState: Current phase and visual state.
+  - phase - Active machine state - one of "Unchecked", "PressingToCheck", "Checked", or "PressingToUncheck".
+  - checked - Derived Boolean value - a boolean.
+  - focused - Whether the control holds keyboard focus - a boolean.
+  - hovered - Whether a pointer is currently over the control - a boolean.
+
+> Domain event emitted when a toggle commits.
+- :CheckboxChangeEvent: Payload emitted on {{commitEvent}}.
+  - checked - The newly committed Boolean value - a boolean.
+  - source - How the interaction was triggered - one of "pointer", "keyboard", or "programmatic".

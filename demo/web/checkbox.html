@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkbox — Complete Plain Component</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 20 20" aria-hidden="true">
+          <rect x="3" y="3" width="14" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2" />
+          <path d="M6.5 10.2 9 12.6 13.8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <h1>Checkbox Component</h1>
+      </div>
+      <nav class="family-links" aria-label="Plain family">
+        <a href="https://mrjf.github.io/PlainType/">PlainType</a>
+        <a href="https://mrjf.github.io/PlainData/">PlainData</a>
+        <a href="https://mrjf.github.io/PlainState/">PlainState</a>
+        <a href="./">PlainView</a>
+        <a href="./checkbox.html" aria-current="page">Checkbox Example</a>
+      </nav>
+      <div class="status" id="status" role="status" aria-live="polite" data-phase="synced">
+        <span class="indicator" aria-hidden="true"></span>
+        <span id="status-text">All 5 files synced</span>
+        <span class="status-meta" id="status-meta"></span>
+      </div>
+      <div class="actions">
+        <button type="button" id="reset-all" class="quiet">Reset</button>
+      </div>
+    </header>
+
+    <section class="shared-tokens" aria-label="Shared component tokens">
+      <span class="shared-tokens-title">Shared tokens</span>
+      <div class="shared-tokens-list" id="shared-tokens-list"></div>
+    </section>
+
+    <main class="component-grid">
+      <section class="pane" id="pane-preview">
+        <header>
+          <h2>Live Checkbox &amp; Machine</h2>
+          <select id="fixture-select" class="pane-select" aria-label="Choose fixture">
+            <option value="defaultUnchecked">defaultUnchecked</option>
+            <option value="preChecked">preChecked</option>
+            <option value="disabledUnchecked">disabledUnchecked</option>
+            <option value="disabledChecked">disabledChecked</option>
+          </select>
+        </header>
+        <div class="preview-body">
+          <div class="checkbox-stage">
+            <button
+              type="button"
+              role="checkbox"
+              aria-checked="false"
+              class="live-checkbox"
+              id="live-checkbox"
+            >
+              <span class="cb-box" aria-hidden="true">
+                <svg viewBox="0 0 14 14"><path d="M2.8 7.2 5.6 10 11.2 4.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </span>
+              <span class="cb-label" id="cb-label">Email notifications</span>
+            </button>
+            <div class="cb-hint">Click, press &amp; drag away to cancel, or focus + Space</div>
+          </div>
+
+          <div class="sim-block">
+            <div class="sim-label">Machine states (PlainState)</div>
+            <div class="state-list" id="cb-states"></div>
+          </div>
+
+          <div class="sim-block">
+            <div class="sim-label">Manual events</div>
+            <div class="event-list" id="cb-events">
+              <button type="button" class="pane-btn" data-ev="press">press</button>
+              <button type="button" class="pane-btn" data-ev="release">release</button>
+              <button type="button" class="pane-btn" data-ev="cancel">cancel</button>
+              <button type="button" class="pane-btn" data-ev="toggle">toggle</button>
+              <label class="inline-check">
+                <input type="checkbox" id="cb-disabled-toggle" />
+                <span>disabled (<code id="guard-name">interactive</code> = false)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="sim-block">
+            <div class="sim-label">Transition log</div>
+            <ol class="trace-list" id="cb-trace"></ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="pane" id="pane-files">
+        <header>
+          <div class="file-tabs" id="file-tabs" role="tablist">
+            <button type="button" role="tab" class="file-tab active" data-file="component.plain">component.plain</button>
+            <button type="button" role="tab" class="file-tab" data-file="contract.plaintype">contract.plaintype</button>
+            <button type="button" role="tab" class="file-tab" data-file="behavior.plainstate">behavior.plainstate</button>
+            <button type="button" role="tab" class="file-tab" data-file="fixtures.plaindata">fixtures.plaindata</button>
+            <button type="button" role="tab" class="file-tab" data-file="tokens.plaindata">tokens.plaindata</button>
+          </div>
+          <span class="badge ok" id="file-dialect">plain</span>
+        </header>
+        <div class="split-file">
+          <div class="editor code file-source-wrap">
+            <textarea id="file-source" spellcheck="false" aria-label="Component file source"></textarea>
+          </div>
+          <div class="reader-view file-reader-wrap" id="file-reader"></div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./checkbox.ts"></script>
+  </body>
+</html>
